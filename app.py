@@ -447,24 +447,4 @@ with c4:
         if not filtered_df.empty else "N/A"
     )
 
-st.subheader("Filtered Dataset")
 
-st.dataframe(
-    filtered_df,
-    use_container_width=True,
-    hide_index=True
-)
-
-st.caption(
-    f"Displayed specimens: {len(filtered_df)}"
-)
-
-# Download filtered data
-csv_data = filtered_df.to_csv(index=False).encode("utf-8")
-
-st.download_button(
-    label="Download Filtered CSV",
-    data=csv_data,
-    file_name="filtered_tensile_data.csv",
-    mime="text/csv"
-)
